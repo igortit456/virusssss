@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💀 DARKNET VIRUS DOWNLOAD CENTER 💀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Courier New', 'Consolas', monospace;
+            color: #00ff00;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: repeating-linear-gradient(0deg, rgba(0,255,0,0.02) 0px, rgba(0,255,0,0.02) 2px, transparent 2px, transparent 8px);
+        }
+
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .terminal {
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 50px rgba(0,255,0,0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .glitch {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            animation: glitch 0.3s infinite;
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: -3px 0 red, 3px 0 blue; transform: skew(0deg); }
+            20% { text-shadow: -2px 0 red, 2px 0 blue; transform: skew(2deg); }
+            40% { text-shadow: -4px 0 red, 4px 0 blue; transform: skew(-2deg); }
+            60% { text-shadow: -1px 0 red, 1px 0 blue; transform: skew(1deg); }
+            80% { text-shadow: -3px 0 red, 3px 0 blue; transform: skew(-1deg); }
+            100% { text-shadow: -2px 0 red, 2px 0 blue; transform: skew(0deg); }
+        }
+
+        .scanner {
+            background: #000000;
+            padding: 12px;
+            margin: 20px 0;
+            font-size: 12px;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .scanner span {
+            display: inline-block;
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .warning-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 5px solid #ff0000;
+            border-right: 5px solid #ff0000;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .warning-title {
+            color: #ff0000;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .warning-text {
+            color: #ff6666;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .responsibility-box {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff0000;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .responsibility-box label {
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        #acceptCheckbox {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: #ff0000;
+        }
+
+        .virus-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d0d0d 100%);
+            border: 1px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .virus-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ff00, #ff0000, #00ff00);
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .virus-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .virus-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff0000;
+        }
+
+        .virus-name {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00ff00, #ff0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .virus-desc {
+            color: #cccccc;
+            margin: 15px 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .virus-desc span {
+            display: inline-block;
+            margin: 4px;
+            padding: 3px 8px;
+            background: rgba(0,255,0,0.1);
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .virus-size {
+            color: #ff6600;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #00ff00 0%, #008800 100%);
+            color: #000000;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ff0000 0%, #880000 100%);
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,0,0,0.5);
+        }
+
+        .footer-status {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #00ff00;
+            text-align: center;
+        }
+
+        .blink {
+            animation: blinkText 1s infinite;
+        }
+
+        @keyframes blinkText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .ip-display {
+            color: #ff6600;
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        .console-line {
+            font-size: 11px;
+            color: #666666;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="matrix-bg"></div>
+<canvas id="matrixRain" class="rain"></canvas>
+
+<div class="container">
+    <div class="terminal">
+        
+        <div class="glitch">
+            ⚡ DARKNET DOWNLOAD CENTER ⚡
+        </div>
+
+        <div class="scanner">
+            <span>[>] INITIALIZING SECURE CONNECTION... [>] BYPASSING FIREWALL... [>] CONNECTION ESTABLISHED [>] STATUS: ONLINE</span>
+        </div>
+
+        <div class="warning-box">
+            <div class="warning-title">⚠️ LEGAL DISCLAIMER ⚠️</div>
+            <div class="warning-text">
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>
+                <strong>ВНИМАНИЕ! Данные файлы являются ВРЕДОНОСНЫМ ПО!</strong><br><br>
+                • WinLocker - блокирует систему, удаляет пароль<br>
+                • Trojan RAT - удаленный доступ, кейлоггер, кража данных<br>
+                • ULTRA KILLER 9.0 - кровь, детский смех, кража данных, BSOD<br><br>
+                <strong style="color:#ff0000;">Скачивая и запуская эти файлы, вы берете ПОЛНУЮ ОТВЕТСТВЕННОСТЬ НА СЕБЯ!</strong><br>
+                Автор НЕ НЕСЕТ ответственности за любые последствия!<br>
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            </div>
+        </div>
+
+        <div class="responsibility-box">
+            <label>
+                <input type="checkbox" id="acceptCheckbox">
+                <span style="color: #ff0000;">✔ Я ПОДТВЕРЖДАЮ, что понимаю: это ВИРУСЫ, и действую на свой страх и риск</span>
+            </label>
+        </div>
+
+        <!-- ВИРУС 1 - WINLOCKER (ТВОЙ) -->
+        <div class="virus-card">
+            <div class="virus-name">💀 WINLOCKER v2.0 💀</div>
+            <div class="virus-desc">
+                <span>🔒 Блокировка экрана на весь экран</span>
+                <span>🔑 Требуется код разблокировки</span>
+                <span>🚫 Блок клавиш Win/Alt/Ctrl/Esc/Tab/F1-F12</span>
+                <span>🔄 Автозагрузка</span>
+                <span>🔐 Удаление пароля Windows</span>
+                <span>🌍 Показ IP и геолокации</span>
+            </div>
+            <div class="virus-size">📦 ~12 MB | RANSOMWARE</div>
+            <button class="download-btn" onclick="downloadVirus(1)">⬇ СКАЧАТЬ WINLOCKER.exe ⬇</button>
+        </div>
+
+        <!-- ВИРУС 2 - TROJAN RAT -->
+        <div class="virus-card">
+            <div class="virus-name">🦠 TROJAN RAT v1.0 🦠</div>
+            <div class="virus-desc">
+                <span>🎥 Удаленный доступ к веб-камере</span>
+                <span>⌨️ Кейлоггер (все нажатия клавиш)</span>
+                <span>📁 Кража файлов с компьютера</span>
+                <span>🔗 Отправка на C&amp;C сервер</span>
+                <span>🖥️ Полный удаленный контроль</span>
+                <span>📸 Скрытые скриншоты экрана</span>
+                <span>блокировка системы</span>
+            </div>
+            <div class="virus-size">📦 ~8 MB | BACKDOOR/RAT</div>
+            <button class="download-btn" onclick="downloadVirus(2)">⬇ СКАЧАТЬ TROJAN_RAT.exe ⬇</button>
+        </div>
+
+        <!-- ВИРУС 3 - ULTRA KILLER 9.0 -->
+        <div class="virus-card">
+            <div class="virus-name">🩸 ULTRA KILLER 9.0 🩸</div>
+            <div class="virus-desc">
+                <span>🩸 Кровь льется сверху</span>
+                <span>👻 Летающая картинка</span>
+                <span>🔊 Детский смех</span>
+                <span>🖱️ Курсор бесится</span>
+                <span>🌐 Страшные запросы в браузере</span>
+                <span>🔐 Кража паролей и файлов</span>
+                <span>⌨️ Кейлоггер</span>
+                <span>💀 Синий экран смерти (BSOD)</span>
+                <span>👥 Создание страшных пользователей</span>
+                <span>🚫 Блок диспетчера задач</span>
+            </div>
+            <div class="virus-size">📦 ~50-100 MB | HORROR/RAT/BSOD</div>
+            <button class="download-btn" onclick="downloadVirus(3)">⬇ СКАЧАТЬ ULTRA_KILLER_9.0.exe ⬇</button>
+        </div>
+
+        <div class="footer-status">
+            <div class="blink">⚠️ ВСЕ ФАЙЛЫ ЯВЛЯЮТСЯ ВИРУСАМИ - ЗАПУСКАТЬ ТОЛЬКО В VM ⚠️</div>
+            <div class="ip-display" id="ipDisplay">[!] LOGGING YOUR IP... [!]</div>
+            <div class="console-line">[>] USE AT YOUR OWN RISK [>]</div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('matrixRain');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const charArray = chars.split('');
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    
+    for(let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+    }
+    
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#0f0';
+        ctx.font = fontSize + 'px monospace';
+        
+        for(let i = 0; i < drops.length; i++) {
+            const text = charArray[Math.floor(Math.random() * charArray.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            
+            if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    
+    setInterval(drawMatrix, 50);
+    
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+    
+    async function getIP() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            document.getElementById('ipDisplay').innerHTML = `[!] YOUR IP: ${data.ip} | GEOLOCATION TRACKED [!]`;
+        } catch(e) {
+            document.getElementById('ipDisplay').innerHTML = '[!] IP LOGGED: 127.0.0.1 [!]';
+        }
+    }
+    getIP();
+    
+    function downloadVirus(num) {
+        const checkbox = document.getElementById('acceptCheckbox');
+        
+        if(!checkbox.checked) {
+            alert('❌ ДОСТУП ЗАПРЕЩЕН!\n\nВы ОБЯЗАНЫ подтвердить ответственность!\n\nПоставьте галочку "Я подтверждаю, что понимаю: это ВИРУСЫ"');
+            return;
+        }
+        
+        let downloadUrl = '';
+        let virusName = '';
+        
+        if (num === 1) {
+            // WinLocker (твой)
+            downloadUrl = 'https://drive.usercontent.google.com/download?id=1ImoclKK0Nd23BDognsfMyMK-S8_ldjtP&export=download&confirm=t';
+            virusName = 'WINLOCKER_v2.0.exe';
+        } else if (num === 2) {
+            // Trojan RAT
+            downloadUrl = 'https://drive.usercontent.google.com/download?id=1E_AlUaDQPt7nIgU3n6ZoT5ibQHumpYF0&export=download&confirm=t';
+            virusName = 'TROJAN_RAT_v1.0.exe';
+        } else {
+            // ULTRA KILLER 9.0
+            downloadUrl = 'https://drive.google.com/drive/folders/1QlaEdITvbn_qbpLMinEDZL1ygj_2zcnA?usp=drive_link';
+            virusName = 'ULTRA_KILLER_9.0.exe';
+        }
+        
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = '⚡ DOWNLOADING... ⚡';
+        btn.style.background = 'linear-gradient(135deg, #ff6600, #ff3300)';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            window.open(downloadUrl, '_blank');
+            
+            btn.innerText = originalText;
+            btn.style.background = 'linear-gradient(135deg, #00ff00, #008800)';
+            btn.disabled = false;
+            
+            setTimeout(() => {
+                alert(`✅ НАЧАТА ЗАГРУЗКА: ${virusName}\n\n⚠️ ПОСЛЕДНЕЕ ПРЕДУПРЕЖДЕНИЕ:\nЭто ВИРУС! Запускайте ТОЛЬКО в виртуальной машине!\n\nЛюбые последствия - ТОЛЬКО ваша ответственность!`);
+            }, 500);
+        }, 800);
+    }
+    
+    console.log('%c⚠️⚠️⚠️ ВНИМАНИЕ! ЭТОТ САЙТ СОДЕРЖИТ ВРЕДОНОСНОЕ ПО! ⚠️⚠️⚠️', 'color: #ff0000; font-size: 18px; font-weight: bold;');
+    
+    window.addEventListener('beforeunload', function(e) {
+        e.preventDefault();
+        e.returnValue = '⚠️ ВЫ ПОКИДАЕТЕ DARKNET DOWNLOAD CENTER ⚠️';
+    });
+</script>
+
+</body>
+</html>
